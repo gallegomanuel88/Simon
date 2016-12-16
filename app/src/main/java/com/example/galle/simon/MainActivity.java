@@ -1,5 +1,6 @@
 package com.example.galle.simon;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Button botonAmarillo;
     Button botonAzul;
     Button botonJugar;
+    Intent prueba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         sonidos [2] = MediaPlayer.create(this,R.raw.sonidomi);
         sonidos [3] = MediaPlayer.create(this,R.raw.sonidofa);
         sonidos [4] = MediaPlayer.create(this,R.raw.error);
+        prueba = new Intent (MainActivity.this, MainActiviti2.class);
     }
 
     int dificultad = 4;
@@ -168,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
             pulsaciones++;
             if (pulsaciones == dificultad){
                 Toast.makeText(this, "Muy bien has ganado", Toast.LENGTH_SHORT).show();
+                startActivity(prueba);
                 botonJugar.setText("JUGAR");
             }
         }
